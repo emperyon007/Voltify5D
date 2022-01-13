@@ -1,6 +1,7 @@
 package com.example.voltify5d;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class gestoreBrani
 {
@@ -13,6 +14,7 @@ public class gestoreBrani
     public void addBrano(String titolo, String autore, int durata)
     {
         Brano br = new Brano(titolo, autore, durata);
+        this.listaBrani.add(br);
     }
 
     public void viewBrani()
