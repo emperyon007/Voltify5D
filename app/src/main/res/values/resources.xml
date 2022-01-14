@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="planets_array">
+        <item>Rock</item>
+        <item>Jazz</item>
+        <item>Grunge</item>
+        <item>Pop</item>
+        <item>Rap</item>
+        <item>Classic</item>
+        <item>Blues</item>
+        <item>Indie</item>
+    </string-array>
+</resources>

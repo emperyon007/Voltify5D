@@ -11,9 +11,9 @@ public class gestoreBrani
         listaBrani = new ArrayList<Brano>();
     }
 
-    public void addBrano(String titolo, String autore, int durata)
+    public void addBrano(String titolo, String autore, String genere, int durata)
     {
-        Brano br = new Brano(titolo, autore, durata);
+        Brano br = new Brano(titolo, autore, genere, durata);
         this.listaBrani.add(br);
     }
 

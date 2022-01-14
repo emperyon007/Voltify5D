@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -26,6 +28,8 @@ public class MainActivity extends AppCompatActivity
 
     Spinner drpList;
 
+    public String selectedGen;
+
     //private static Context context;
 
 
@@ -44,6 +48,14 @@ public class MainActivity extends AppCompatActivity
 
         this.drpList = findViewById(R.id.selectList);
 
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.planets_array, android.R.layout.simple_spinner_item);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        drpList.setAdapter(adapter);
+
+
         //MainActivity.context = getApplicationContext();
 
         gb = new gestoreBrani();
@@ -53,10 +65,13 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
+                selectedGen = drpList.getSelectedItem().toString();
+
                 gb.addBrano
                 (
                     txtTitolo.getText().toString(),
                     txtAutore.getText().toString(),
+                    selectedGen,
                     Integer.parseInt(txtDurata.getText().toString())
                 );
 
@@ -71,6 +86,18 @@ public class MainActivity extends AppCompatActivity
                 Intent i = (new Intent(MainActivity.this, MainActivity2.class));
                 i.putExtra("key", (Serializable) gb.listaBrani);
                 startActivity(i);
+            }
+        });
+
+        drpList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
 
