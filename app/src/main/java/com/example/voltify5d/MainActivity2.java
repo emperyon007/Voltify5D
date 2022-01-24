@@ -3,6 +3,7 @@ package com.example.voltify5d;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -36,6 +37,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         listView.setAdapter(arrayAdapter);
 
-        System.out.println(gb.toString());
+
+        Log.i("Final", gb.toString());
     }
 }
