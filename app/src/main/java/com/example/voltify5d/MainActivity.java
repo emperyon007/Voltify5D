@@ -51,8 +51,16 @@ public class MainActivity extends AppCompatActivity
 
         this.drpList = findViewById(R.id.selectList);
 
+        /*
+        elencoGeneri[] = {"Rock", "Pop", "Punk"};
+
+        ArrayAdapter<String> spGen = new ArrayAdapter<String>(this, R.layout.simple_spinner_item, eleconGeneri);
+
+        drpList.setAdapter(spGen);
+         */
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.planets_array, android.R.layout.simple_spinner_item);
+                R.array.genre_array, android.R.layout.simple_spinner_item);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
