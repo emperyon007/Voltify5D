@@ -38,6 +38,6 @@ public class MainActivity2 extends AppCompatActivity {
         listView.setAdapter(arrayAdapter);
 
 
-        Log.i("Final", gb.toString());
+        Log.d("Final", gb.toString());
     }
 }

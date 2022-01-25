@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Log.i("Submit", "Clicked submit");
+                Log.d("Submit", "Clicked submit");
 
                 if(txtTitolo.getText().toString().isEmpty() || txtAutore.getText().toString().isEmpty() || txtMinuti.getText().toString().isEmpty())
                 {
@@ -110,6 +110,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+
         view.setOnClickListener(new View.OnClickListener()
         {
             /**
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Log.i("View", "Clicked view");
+                Log.d("View", "Clicked view");
 
                 Intent i = (new Intent(MainActivity.this, MainActivity2.class));
                 i.putExtra("key", (Serializable) gb.listaBrani);
@@ -144,3 +145,4 @@ public class MainActivity extends AppCompatActivity
     }
 
 }
+
