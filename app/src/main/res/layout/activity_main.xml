@@ -36,25 +36,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/edtMinuti"
-        android:layout_width="72dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="46dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectList" />
-
-    <EditText
-        android:id="@+id/edtSecondi"
-        android:layout_width="72dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="46dp"
-        android:layout_marginEnd="102dp"
+        android:id="@+id/edtTemp"
+        android:layout_width="176dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="119dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selectList" />
 
     <TextView
@@ -152,7 +143,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtMinuti" />
+        app:layout_constraintTop_toBottomOf="@+id/edtTemp" />
 
     <Button
         android:id="@+id/btnView"
@@ -165,21 +156,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSubmit" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="45dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="7dp"
-        android:text="\u003A"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="#000000"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toStartOf="@+id/edtSecondi"
-        app:layout_constraintStart_toEndOf="@+id/edtMinuti"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

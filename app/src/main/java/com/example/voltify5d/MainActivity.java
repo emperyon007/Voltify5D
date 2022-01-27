@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity
 
     EditText txtTitolo;
     EditText txtAutore;
-    EditText txtMinuti;
+    EditText txtDurata;
     EditText txtSecondi;
 
     Button submit;
@@ -43,8 +43,7 @@ public class MainActivity extends AppCompatActivity
 
         this.txtTitolo = findViewById(R.id.edtTitolo);
         this.txtAutore = findViewById(R.id.edtAutore);
-        this.txtMinuti = findViewById(R.id.edtMinuti);
-        this.txtSecondi = findViewById(R.id.edtSecondi);
+        this.txtDurata = findViewById(R.id.edtTemp);
 
         this.submit = findViewById(R.id.btnSubmit);
         this.view = findViewById(R.id.btnView);
@@ -88,7 +87,7 @@ public class MainActivity extends AppCompatActivity
             {
                 Log.i("Submit", "Clicked submit");
 
-                if(txtTitolo.getText().toString().isEmpty() || txtAutore.getText().toString().isEmpty() || txtMinuti.getText().toString().isEmpty())
+                if(txtTitolo.getText().toString().isEmpty() || txtAutore.getText().toString().isEmpty() || txtDurata.getText().toString().isEmpty())
                 {
                     String text = "Fill all fields";
                     Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
@@ -97,14 +96,15 @@ public class MainActivity extends AppCompatActivity
                 else
                 {
                     selectedGen = drpList.getSelectedItem().toString();
+                    Integer minuti = Integer.parseInt(txtDurata.getText().toString()) / 60;
+                    Integer secondi = Integer.parseInt(txtDurata.getText().toString()) % 60;
 
                     gb.addBrano
                     (
                         txtTitolo.getText().toString(),
                         txtAutore.getText().toString(),
                         selectedGen,
-                        txtMinuti.getText().toString() + ":" +
-                        txtSecondi.getText().toString()
+                        minuti + ":" + String.format("%02d", secondi)
                     );
                 }
             }
