@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -50,6 +51,9 @@ public class MainActivity extends AppCompatActivity
 
         this.drpList = findViewById(R.id.selectList);
 
+        if(Memory.brani == null) {
+            Memory.brani = new ArrayList<String>();
+        }
         /*
         elencoGeneri[] = {"Rock", "Pop", "Punk"};
 
@@ -99,13 +103,15 @@ public class MainActivity extends AppCompatActivity
                     Integer minuti = Integer.parseInt(txtDurata.getText().toString()) / 60;
                     Integer secondi = Integer.parseInt(txtDurata.getText().toString()) % 60;
 
-                    gb.addBrano
+                    Brano toAppend = new Brano
                     (
                         txtTitolo.getText().toString(),
                         txtAutore.getText().toString(),
                         selectedGen,
                         minuti + ":" + String.format("%02d", secondi)
                     );
+
+                    Memory.brani.add(toAppend.toString());
                 }
             }
         });
@@ -123,9 +129,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 Log.d("View", "Clicked view");
-
                 Intent i = (new Intent(MainActivity.this, MainActivity2.class));
-                i.putExtra("key", (Serializable) gb.listaBrani);
                 startActivity(i);
             }
         });

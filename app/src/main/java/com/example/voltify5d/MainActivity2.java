@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,31 +28,29 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
         this.listView = findViewById(R.id.listView);
-
         builder = new AlertDialog.Builder(this);
-
         Bundle extras = getIntent().getExtras();
-        List<String> gbMap = new ArrayList<String>();
-        List<Brano> gb = (ArrayList<Brano>) extras.getSerializable("key");
-
-        for (Brano gbItem:gb)
-        {
-            gbMap.add(gbItem.toString());
-        }
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,
                 android.R.layout.simple_list_item_1,
-                gbMap );
+                Memory.brani );
 
         listView.setAdapter(arrayAdapter);
 
-        Log.i("Final", gb.toString());
+        Log.i("Final", Memory.brani.toString());
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
+            /**
+             * Method: onItemClick
+             * when item is clicked displays option to delete it
+             * @param parent
+             * @param view
+             * @param position
+             * @param id
+             */
             @Override
             public void onItemClick(AdapterView<?> parent, View view,int position, long id)
             {
@@ -65,12 +64,11 @@ public class MainActivity2 extends AppCompatActivity {
                             {
                                 Log.i("Yes", "Yes");
 
-                                gb.remove(position);
-                                gbMap.remove(position);
-                                //arrayAdapter.remove(arrayAdapter.getItem(position));
+                                Memory.brani.remove(position);
+                                arrayAdapter.notifyDataSetChanged();
                             }
                         })
-                        .setNegativeButton("Undo", new DialogInterface.OnClickListener()
+                        .setNegativeButton("Keep", new DialogInterface.OnClickListener()
                         {
                             public void onClick(DialogInterface dialog, int id)
                             {
@@ -78,6 +76,7 @@ public class MainActivity2 extends AppCompatActivity {
                                 Log.i("No", "No");
                             }
                         });
+                arrayAdapter.notifyDataSetChanged();
 
                 AlertDialog alert = builder.create();
                 alert.setTitle("Alert");
