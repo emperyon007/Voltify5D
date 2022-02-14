@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Voltify5D">
         <activity
+            android:name=".MainActivity3"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity2"
             android:exported="true" />
         <activity

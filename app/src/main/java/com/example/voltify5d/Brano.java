@@ -36,6 +36,6 @@ public class Brano implements Serializable
                 "" + titolo +
                 "\n" + autore +
                 " | " + genere +
-                " | " + durata;
+                " | " + durata + "\n";
     }
 }

@@ -22,12 +22,17 @@ public class MainActivity2 extends AppCompatActivity {
 
     ListView listView;
 
+    Button export;
+
     AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main3);
+
+        this.export = findViewById(R.id.btnExp);
+
         this.listView = findViewById(R.id.listView);
         builder = new AlertDialog.Builder(this);
         Bundle extras = getIntent().getExtras();
@@ -81,6 +86,17 @@ public class MainActivity2 extends AppCompatActivity {
                 AlertDialog alert = builder.create();
                 alert.setTitle("Alert");
                 alert.show();
+            }
+        });
+
+        /***
+         * Method: onClick
+         * on click use "writeToFile" function to export list
+         */
+        export.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                IO.writeToFile(Memory.brani.toString(), getApplicationContext());
             }
         });
 
