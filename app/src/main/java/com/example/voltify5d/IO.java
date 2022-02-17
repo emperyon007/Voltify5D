@@ -1,11 +1,13 @@
 package com.example.voltify5d;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.util.Log;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class IO
 {
@@ -27,4 +29,15 @@ public class IO
             Log.i("WriteOP", e.getMessage());
         }
     }
+
+    /*
+    public String readFile(Context c)
+    {
+        Resources res;
+        res = c.getResources();
+        InputStream fileLetto;
+        fileLetto = res.openRawResource();
+    }
+    */
 }
+
