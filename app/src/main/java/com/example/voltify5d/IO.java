@@ -4,10 +4,13 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.Log;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class IO
 {
@@ -30,14 +33,30 @@ public class IO
         }
     }
 
-    /*
-    public String readFile(Context c)
+    public String readFile(String fileName, Context c)
     {
-        Resources res;
-        res = c.getResources();
-        InputStream fileLetto;
-        fileLetto = res.openRawResource();
+        BufferedReader fileIn = null;
+        String outputFile;
+        StringBuilder strB = new StringBuilder();
+
+        try
+        {
+            fileIn= new BufferedReader(new InputStreamReader(c.openFileInput(fileName)));
+            while((outputFile = fileIn.readLine()) != null)
+            {
+                strB.append(outputFile + "\n");
+            }
+        }
+        catch(FileNotFoundException e)
+        {
+            Log.e("FileStatus", "File does not exists");
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        return strB.toString();
     }
-    */
 }
 
