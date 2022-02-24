@@ -33,7 +33,7 @@ public class IO
         }
     }
 
-    public String readFile(String fileName, Context c)
+    public static String readFile(String fileName, Context c)
     {
         BufferedReader fileIn = null;
         String outputFile;
@@ -42,6 +42,36 @@ public class IO
         try
         {
             fileIn= new BufferedReader(new InputStreamReader(c.openFileInput(fileName)));
+            while((outputFile = fileIn.readLine()) != null)
+            {
+                strB.append(outputFile + "\n");
+            }
+        }
+        catch(FileNotFoundException e)
+        {
+            Log.e("FileStatus", "File does not exists");
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        return strB.toString();
+    }
+
+    public static String readFileRaw(Context c)
+    {
+        BufferedReader fileIn = null;
+        String outputFile;
+        StringBuilder strB = new StringBuilder();
+
+        Resources res = c.getResources();
+
+        InputStream is = res.openRawResource(R.raw.brani);
+
+        try
+        {
+            fileIn= new BufferedReader(new InputStreamReader(is));
             while((outputFile = fileIn.readLine()) != null)
             {
                 strB.append(outputFile + "\n");

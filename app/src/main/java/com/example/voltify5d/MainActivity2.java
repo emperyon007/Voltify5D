@@ -10,19 +10,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity2 extends AppCompatActivity {
 
     ListView listView;
 
-    Button export;
+    Button exp;
+    Button imp;
 
     AlertDialog.Builder builder;
 
@@ -31,7 +26,8 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        this.export = findViewById(R.id.btnExp);
+        this.exp = findViewById(R.id.btnExp);
+        this.imp = findViewById(R.id.btnImp);
 
         this.listView = findViewById(R.id.listView);
         builder = new AlertDialog.Builder(this);
@@ -93,12 +89,22 @@ public class MainActivity2 extends AppCompatActivity {
          * Method: onClick
          * on click use "writeToFile" function to export list
          */
-        export.setOnClickListener(new View.OnClickListener() {
+        exp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 IO.writeToFile(Memory.brani.toString(), getApplicationContext());
             }
         });
 
+        imp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String fileText = IO.readFileRaw(getApplicationContext());
+
+                Log.d("printed", fileText);
+            }
+        });
+
     }
+
 }
