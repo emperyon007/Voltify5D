@@ -148,5 +148,12 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    @Override
+    protected void onResume() {
+        txtTitolo.getText().clear();
+        txtAutore.getText().clear();
+        txtDurata.getText().clear();
+        super.onResume();
+    }
 }
 

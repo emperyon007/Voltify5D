@@ -33,7 +33,6 @@ public class MainActivity2 extends AppCompatActivity {
 
         this.listView = findViewById(R.id.listView);
         builder = new AlertDialog.Builder(this);
-        Bundle extras = getIntent().getExtras();
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,
