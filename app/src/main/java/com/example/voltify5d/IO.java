@@ -17,7 +17,7 @@ public class IO
 
     /***
      * Method: writeToFile
-     * create (if not exist) a file and write the list in
+     * create (if not exist) a file and write the list in (Dev file exp)
      * @param s
      * @param context
      */
@@ -59,6 +59,12 @@ public class IO
         return strB.toString();
     }
 
+    /***
+     * Method: readFileRaw
+     * Get file from dir "raw" and read it
+     * @param c
+     * @return
+     */
     public static String readFileRaw(Context c)
     {
         BufferedReader fileIn = null;
@@ -76,10 +82,6 @@ public class IO
             {
                 strB.append(outputFile + "\n");
             }
-        }
-        catch(FileNotFoundException e)
-        {
-            Log.e("FileStatus", "File does not exists");
         }
         catch (IOException e)
         {
