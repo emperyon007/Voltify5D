@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.util.StringTokenizer;
+
 public class MainActivity2 extends AppCompatActivity {
 
     ListView listView;
@@ -31,7 +33,6 @@ public class MainActivity2 extends AppCompatActivity {
 
         this.listView = findViewById(R.id.listView);
         builder = new AlertDialog.Builder(this);
-        Bundle extras = getIntent().getExtras();
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,
