@@ -103,6 +103,7 @@ public class MainActivity2 extends AppCompatActivity {
 
                 Log.d("printed", fileText);
             }
+
         });
 
     }
