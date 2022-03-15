@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import org.json.JSONException;
+
 import java.util.StringTokenizer;
 
 public class MainActivity2 extends AppCompatActivity {
@@ -101,6 +103,12 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String fileText = IO.readFileRaw(getApplicationContext());
+
+                try {
+                    String fileJSON = IO.readFileJson(getApplicationContext());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
                 Log.d("printed", fileText);
             }

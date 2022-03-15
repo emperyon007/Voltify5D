@@ -4,6 +4,10 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -89,6 +93,61 @@ public class IO
         }
 
         return strB.toString();
+    }
+
+    public static String readFileJson(Context c) throws JSONException {
+        BufferedReader fileIn = null;
+        String outputFile;
+        StringBuilder strB = new StringBuilder();
+
+        Resources res = c.getResources();
+
+        InputStream is = res.openRawResource(R.raw.json_file);
+
+        try
+        {
+            fileIn= new BufferedReader(new InputStreamReader(is));
+            while((outputFile = fileIn.readLine()) != null)
+            {
+                strB.append(outputFile + "\n");
+            }
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        //return strB.toString();
+
+        JSONArray jsonArray = new JSONArray(strB.toString());
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            //JSONObject jsonObject = jsonArray.getJSONObject(i);
+            String value = jsonArray.getString(i);
+        }
+
+
+        /*
+        JSONObject jsObj = new JSONObject(strB.toString());
+        String titolo = jsObj.getString("Titolo");
+        String autore = jsObj.getString("Autore");
+        String genere = jsObj.getString("Genere");
+        int durata = jsObj.getInt("Durata");
+
+
+        Integer minuti = durata / 60;
+        Integer secondi = durata % 60;
+
+        Brano toAppend = new Brano
+                (
+                        titolo,
+                        autore,
+                        genere,
+                        minuti + ":" + String.format("%02d", secondi)
+                );
+
+        return toAppend.toString();
+         */
     }
 }
 
