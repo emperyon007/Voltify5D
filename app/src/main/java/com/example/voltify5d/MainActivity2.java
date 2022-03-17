@@ -24,6 +24,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     Button exp;
     Button imp;
+    Button clear;
 
     AlertDialog.Builder builder;
 
@@ -34,6 +35,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         this.exp = findViewById(R.id.btnExp);
         this.imp = findViewById(R.id.btnImp);
+        this.clear = findViewById(R.id.btnClear);
 
         findViewById(R.id.loadingPanel).setVisibility(View.GONE);
 
@@ -131,6 +133,41 @@ public class MainActivity2 extends AppCompatActivity {
 
             }
 
+        });
+
+        clear.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            /***
+             * Method: onClick
+             * when button is clicked displays option to clear the list
+             */
+            public void onClick(View view)
+            {
+                builder.setMessage("Do you want to clear the list?")
+                        .setCancelable(false)
+                        .setPositiveButton("Clear", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i)
+                            {
+                                Memory.brani.clear();
+                                arrayAdapter.notifyDataSetChanged();
+                            }
+                        })
+                        .setNegativeButton("Keep", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i)
+                            {
+                                dialogInterface.cancel();
+                            }
+                        });
+
+                AlertDialog alert = builder.create();
+                alert.setTitle("Alert");
+                alert.show();
+            }
         });
 
     }

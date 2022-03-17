@@ -8,8 +8,8 @@
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="412dp"
-        android:layout_height="733dp"
+        android:layout_width="409dp"
+        android:layout_height="845dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
@@ -25,36 +25,50 @@
         android:id="@+id/btnExp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="47dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginBottom="48dp"
         android:text="Export"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/btnClear"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnImp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="134dp"
-        android:layout_marginEnd="47dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="48dp"
         android:text="Import"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnExp" />
+        app:layout_constraintStart_toEndOf="@+id/btnClear" />
 
     <RelativeLayout
         android:id="@+id/loadingPanel"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center" >
+        android:layout_width="68dp"
+        android:layout_height="63dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:indeterminate="true" />
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="Clear"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
