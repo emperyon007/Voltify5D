@@ -1,6 +1,17 @@
 {
-  "Titolo": "Numb little bug",
-  "Autore": "Em Beihold",
-  "Genere": "Pop",
-  "Durata": 150
+  "Brano":
+  [
+    {
+      "Titolo" : "Numb little bug",
+      "Autore": "Em Beihold",
+      "Genere" : "Pop",
+      "Durata" : 150
+    },
+    {
+      "Titolo" : "Papercut",
+      "Autore": "Linkin Park",
+      "Genere" : "Rock",
+      "Durata" : 188
+    }
+  ]
 }

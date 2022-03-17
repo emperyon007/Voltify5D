@@ -15,6 +15,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 
 public class IO
 {
@@ -122,18 +123,28 @@ public class IO
 
         JSONObject jsonObject = new JSONObject(strB.toString());
 
-        Log.d("Brani", jsonObject.get("Titolo").toString());
-        /*
-        JSONArray jsonArrayB = jsonObject.getJSONArray();
+        //Log.d("Brani", jsonObject.get("Titolo").toString());
+
+        JSONArray jsonArrayB = jsonObject.getJSONArray("Brano");
         String[] brani = new String[jsonArrayB.length()];
 
         for(int i=0;i < jsonArrayB.length();i++) {
-            Log.d("Brani", brani[i] = jsonArrayB.getString(i));
+            JSONObject jsonObjectB = jsonArrayB.getJSONObject(i);
+
+            Integer minuti = Integer.parseInt(jsonObjectB.getString("Durata")) / 60;
+            Integer secondi = Integer.parseInt(jsonObjectB.getString("Durata")) % 60;
+
+            Brano toAppend = new Brano
+                    (
+                            jsonObjectB.getString("Titolo"),
+                            jsonObjectB.getString("Autore"),
+                            jsonObjectB.getString("Genere"),
+                            minuti + ":" + String.format("%02d", secondi)
+                    );
+            //Log.d("BraniObj", jsonObjectB.getString("Titolo"));
+            Memory.brani.add(toAppend.toString());
         }
 
-        Log.d("BraniS", brani[0]);
-        Log.d("BraniS", brani[1]);
-         */
 
         /*
         JSONArray jsonArray = new JSONArray(strB.toString());
