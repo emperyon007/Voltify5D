@@ -143,6 +143,8 @@ public class IO
                     );
             //Log.d("BraniObj", jsonObjectB.getString("Titolo"));
             Memory.brani.add(toAppend.toString());
+
+
         }
 
 
