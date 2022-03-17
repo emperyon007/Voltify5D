@@ -121,7 +121,10 @@ public class IO
 
 
         JSONObject jsonObject = new JSONObject(strB.toString());
-        JSONArray jsonArrayB = jsonObject.getJSONArray("Brano");
+
+        Log.d("Brani", jsonObject.get("Titolo").toString());
+        /*
+        JSONArray jsonArrayB = jsonObject.getJSONArray();
         String[] brani = new String[jsonArrayB.length()];
 
         for(int i=0;i < jsonArrayB.length();i++) {
@@ -130,6 +133,7 @@ public class IO
 
         Log.d("BraniS", brani[0]);
         Log.d("BraniS", brani[1]);
+         */
 
         /*
         JSONArray jsonArray = new JSONArray(strB.toString());
