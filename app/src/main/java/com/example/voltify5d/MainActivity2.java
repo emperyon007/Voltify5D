@@ -105,7 +105,7 @@ public class MainActivity2 extends AppCompatActivity {
                 String fileText = IO.readFileRaw(getApplicationContext());
 
                 try {
-                    String fileJSON = IO.readFileJson(getApplicationContext());
+                    IO.readFileJson(getApplicationContext());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

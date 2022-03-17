@@ -95,7 +95,7 @@ public class IO
         return strB.toString();
     }
 
-    public static String readFileJson(Context c) throws JSONException {
+    public static void readFileJson(Context c) throws JSONException {
         BufferedReader fileIn = null;
         String outputFile;
         StringBuilder strB = new StringBuilder();
@@ -119,6 +119,19 @@ public class IO
 
         //return strB.toString();
 
+
+        JSONObject jsonObject = new JSONObject(strB.toString());
+        JSONArray jsonArrayB = jsonObject.getJSONArray("Brano");
+        String[] brani = new String[jsonArrayB.length()];
+
+        for(int i=0;i < jsonArrayB.length();i++) {
+            Log.d("Brani", brani[i] = jsonArrayB.getString(i));
+        }
+
+        Log.d("BraniS", brani[0]);
+        Log.d("BraniS", brani[1]);
+
+        /*
         JSONArray jsonArray = new JSONArray(strB.toString());
 
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -127,7 +140,6 @@ public class IO
         }
 
 
-        /*
         JSONObject jsObj = new JSONObject(strB.toString());
         String titolo = jsObj.getString("Titolo");
         String autore = jsObj.getString("Autore");
