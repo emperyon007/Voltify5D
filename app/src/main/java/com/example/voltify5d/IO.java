@@ -96,7 +96,14 @@ public class IO
         return strB.toString();
     }
 
-    public static void readFileJson(Context c) throws JSONException {
+    /***
+     * Method: readFileJson
+     * Read JSON file from resources and add it to main list
+     * @param c
+     * @throws JSONException
+     */
+    public static void readFileJson(Context c) throws JSONException
+    {
         BufferedReader fileIn = null;
         String outputFile;
         StringBuilder strB = new StringBuilder();
@@ -128,7 +135,8 @@ public class IO
         JSONArray jsonArrayB = jsonObject.getJSONArray("Brano");
         String[] brani = new String[jsonArrayB.length()];
 
-        for(int i=0;i < jsonArrayB.length();i++) {
+        for(int i=0;i < jsonArrayB.length();i++)
+        {
             JSONObject jsonObjectB = jsonArrayB.getJSONObject(i);
 
             Integer minuti = Integer.parseInt(jsonObjectB.getString("Durata")) / 60;
@@ -144,39 +152,7 @@ public class IO
             //Log.d("BraniObj", jsonObjectB.getString("Titolo"));
             Memory.brani.add(toAppend.toString());
 
-
         }
-
-
-        /*
-        JSONArray jsonArray = new JSONArray(strB.toString());
-
-        for (int i = 0; i < jsonArray.length(); i++) {
-            //JSONObject jsonObject = jsonArray.getJSONObject(i);
-            String value = jsonArray.getString(i);
-        }
-
-
-        JSONObject jsObj = new JSONObject(strB.toString());
-        String titolo = jsObj.getString("Titolo");
-        String autore = jsObj.getString("Autore");
-        String genere = jsObj.getString("Genere");
-        int durata = jsObj.getInt("Durata");
-
-
-        Integer minuti = durata / 60;
-        Integer secondi = durata % 60;
-
-        Brano toAppend = new Brano
-                (
-                        titolo,
-                        autore,
-                        genere,
-                        minuti + ":" + String.format("%02d", secondi)
-                );
-
-        return toAppend.toString();
-         */
     }
 }
 

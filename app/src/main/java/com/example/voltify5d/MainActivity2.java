@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -33,6 +34,8 @@ public class MainActivity2 extends AppCompatActivity {
 
         this.exp = findViewById(R.id.btnExp);
         this.imp = findViewById(R.id.btnImp);
+
+        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
 
         this.listView = findViewById(R.id.listView);
         builder = new AlertDialog.Builder(this);
@@ -113,7 +116,19 @@ public class MainActivity2 extends AppCompatActivity {
 
                 Log.d("printed", fileText);
 
-                arrayAdapter.notifyDataSetChanged();
+                findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+                        arrayAdapter.notifyDataSetChanged();
+                    }
+                }, 2000);
+
             }
 
         });
