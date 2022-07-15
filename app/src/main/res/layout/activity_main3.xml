@@ -23,9 +23,9 @@
 
     <Button
         android:id="@+id/btnExp"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="35dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="48dp"
         android:text="Export"
@@ -35,10 +35,10 @@
 
     <Button
         android:id="@+id/btnImp"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="35dp"
         android:layout_marginBottom="48dp"
         android:text="Import"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,7 +56,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ProgressBar
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:indeterminate="true" />
     </RelativeLayout>
@@ -65,6 +65,8 @@
         android:id="@+id/btnClear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
         android:layout_marginBottom="48dp"
         android:text="Clear"
         app:layout_constraintBottom_toBottomOf="parent"
